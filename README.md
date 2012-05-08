@@ -1,4 +1,5 @@
 Sublime Plugins
 ===============
 
-* Git plugin - adds branch name to status bar.
+* Git branch - adds branch name to status bar.
+* Hoogle search - opens Hoogle query in default browser.
