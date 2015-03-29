@@ -1,5 +1,4 @@
-Sublime Plugins
+Hoogle search
 ===============
 
-* Git branch - adds branch name to status bar.
-* Hoogle search - opens Hoogle query in default browser.
+* Hoogle search
