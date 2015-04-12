@@ -12,11 +12,11 @@ class HoogleSearchCommand(sublime_plugin.WindowCommand):
 		self.window.show_input_panel("Hoogle Query", "", search, None, None)
 
 def search(inp):
-	global results;
+	global results
 
-	query   = inp.replace("=", "%3d").replace(" ", "+")
+	query   = urllib.parse.quote_plus(inp)
 	url     = "https://www.haskell.org/hoogle/?hoogle="+ query +"&mode=json"
-	data    = urllib.request.urlopen(url).read().decode();
+	data    = urllib.request.urlopen(url).read().decode()
 	data 	= json.loads(data)
 	results = data['results']
 
@@ -33,4 +33,4 @@ def search(inp):
 
 
 def on_done(index):
-	webbrowser.open(results[index]['location'], 2);
+	webbrowser.open(results[index]['location'], 2)
