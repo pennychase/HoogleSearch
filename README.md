@@ -16,5 +16,4 @@ Hoogle search
 
 ## TODO
 
-1. Download to hoogle database so it becomes faster + works offline
-2. Show the docs in sublime text instead of opening a browser
+See the [issues](https://github.com/s4wny/HoogleSearch/issues).
