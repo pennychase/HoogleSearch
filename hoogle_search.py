@@ -33,4 +33,5 @@ def search(inp):
 
 
 def on_done(index):
-	webbrowser.open(results[index]['location'], 2)
+	if index != -1:
+		webbrowser.open(results[index]['location'], 2)
