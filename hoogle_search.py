@@ -1,7 +1,7 @@
 # Hoogle Search plugin for Sublime Text 3
 
 import sublime, sublime_plugin, webbrowser
-import urllib.request, json
+import urllib.request, json, re
 from html.parser import HTMLParser
 import pprint as pp
 
@@ -17,7 +17,7 @@ def search(inp):
 	global results
 
 	query   = urllib.parse.quote_plus(inp)
-	url     = "https://www.haskell.org/hoogle/?hoogle="+ query +"&mode=json"
+	url     = "https://hoogle.haskell.org/?hoogle="+ query +"&mode=json"
 	data    = urllib.request.urlopen(url).read().decode()
 	results = json.loads(data)
 
@@ -44,36 +44,23 @@ def on_done(index):
 # The module name is in the module dictionary and the type signature is the item string (the function name
 # may be embedded in html tags). Some entries may be missing some of these elements, and we skip them.
 def format (result):
-	if result.get('module') == None:
+	if result.get('module') == None:					# Get module name if it exists
 		return ''
 	else:
-		modname = result.get('module').get('name') # get the module name if it exists
+		modname = result.get('module').get('name') 		
 		if modname == None:
 			return ''
-	if result.get('item') == None:
+
+	if result.get('item') == None:						# Get type signature
 		return ''
 	else:
-		res = result['item'].split('::')  # split type signature into name and type
-		name = removeHtml(res[0])
-		if len (res) == 1:                # the type might not be included in the entry
+		res = result['item'].split('::')  				# split type siganture into name and type
+		name = re.sub('<[^<]+?>', '', res[0])			# remove all html tags
+		if len (res) == 1:                				# the type might not be included
 			ret = modname + ' ' + name
 		else:
 			ret = modname + ' ' + name + '::' + res[1]
-	return (HTMLParser().unescape (ret))   # decode html entities
 
-# Remove html tags by skipping over anything between < and >. There seems to be variation in the tags used
-# in Hoogle entries, so this approach removes everything that isn't part of the item's name.
-def removeHtml (str):
-	result = ''
-	inHtml = False
-	for c in str:
-		if c == '<':
-			inHtml = True
-		elif c == '>':
-			inHtml = False
-		else:
-			if not inHtml:
-				result = result + c
-	return (result)
+	return (HTMLParser().unescape (ret))   				# decode html entities
 
 
