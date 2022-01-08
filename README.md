@@ -34,4 +34,4 @@ Original plugin by [Sawny](https://github.com/s4wny/)
 
 ## Support
 
-If there are any problems or you have suggestions, [open an issue](https://github.com/s4wny/HoogleSearch/issues).
+If there are any problems or you have suggestions, [open an issue](https://github.com/pennychase/HoogleSearch/issues).
