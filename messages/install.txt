@@ -1,0 +1,9 @@
+Hoogle Search
+-------------
+
+Search the Haskell API database within Sublime Text.
+
+For information on how use the plugin, create key bindings, and provide feedback, see:
+
+    https://github.com/s4wny/HoogleSearch/
+

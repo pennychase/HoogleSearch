@@ -1,0 +1,10 @@
+=> 1.2.0
+
+# Fixes and features
+
+- Added new command to search selected text (or the word the cursor is in): Hoogle Search: Search Selection
+- Renamed "Hoogle Search" command to "Hoogle Search: Search"
+- Updated README to include
+    - New functionality
+    - Instructions on defining key bindings for the commands
+    - Description of additional features of the Hoogle API

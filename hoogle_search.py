@@ -13,6 +13,17 @@ class HoogleSearchCommand(sublime_plugin.WindowCommand):
 	def run(self):
 		self.window.show_input_panel("Hoogle Query", "", search, None, None)
 
+class HoogleSearchSelectionCommand(sublime_plugin.TextCommand):
+    def run(self, edit):
+        
+        # query
+        selection = self.view.sel()[0]
+        if len(selection) == 0:
+            selection = self.view.word(selection)
+        query = self.view.substr(selection)
+
+        search(query)
+
 def search(inp):
 	global results
 
