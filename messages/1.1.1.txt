@@ -1,0 +1,5 @@
+=> 1.1.1
+
+# Fixes and features
+
+- Updated to work with current Hoogle API
