@@ -1,3 +1,7 @@
 [
-	{"caption": "Hoogle Search", "command": "hoogle_search"}
+	{ "caption": "Hoogle Search: Search", 
+	  "command": "hoogle_search"},
+	{ "caption": "Hoogle Search: Search Selection",
+	  "command": "hoogle_search_selection"
+	}
 ]
